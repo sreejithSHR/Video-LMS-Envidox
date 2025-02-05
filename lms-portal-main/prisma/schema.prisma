@@ -1,0 +1,331 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+// User
+model User {
+  id                  String                   @id @default(uuid())
+  conversations       ChatConversation[]
+  courses             Course[]
+  createdAt           DateTime                 @default(now())
+  csmIssues           CsmIssue[]
+  email               String                   @unique
+  isPublic            Boolean?                 @default(false)
+  name                String?
+  notifications       Notification[]
+  otpCreatedAt        DateTime?
+  otpSecret           String?
+  password            String?
+  pictureUrl          String?
+  role                String                   @default("student")
+  sharedConversations ChatSharedConversation[]
+  stripeSubscription  StripeSubscription?
+  updatedAt           DateTime                 @updatedAt
+}
+
+model UserProgress {
+  id          String   @id @default(uuid())
+  chapter     Chapter? @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  chapterId   String
+  createdAt   DateTime @default(now())
+  isCompleted Boolean  @default(false)
+  updatedAt   DateTime @updatedAt
+  userId      String
+
+  @@unique([userId, chapterId])
+  @@index([chapterId])
+}
+
+// Courses
+model Category {
+  id      String   @id @default(uuid())
+  courses Course[]
+  name    String   @unique
+}
+
+model Course {
+  id          String       @id @default(uuid())
+  attachments Attachment[]
+  category    Category?    @relation(fields: [categoryId], references: [id])
+  categoryId  String?
+  chapters    Chapter[]
+  createdAt   DateTime     @default(now())
+  customRates String?
+  customTags  String[]
+  description String?      @db.Text
+  imageUrl    String?      @db.Text
+  isPremium   Boolean?     @default(false)
+  isPublished Boolean      @default(false)
+  language    String?
+  price       Int?         @default(0)
+  purchases   Purchase[]
+  title       String       @db.Text
+  updatedAt   DateTime     @updatedAt
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+
+  @@index([categoryId])
+}
+
+model Attachment {
+  id        String   @id @default(uuid())
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  courseId  String
+  createdAt DateTime @default(now())
+  name      String
+  updatedAt DateTime @updatedAt
+  url       String   @db.Text
+
+  @@index([courseId])
+}
+
+// Chapters
+model MuxData {
+  id        String  @id @default(uuid())
+  chapter   Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  chapterId String  @unique
+  videoUrl  String? @db.Text
+}
+
+model Chapter {
+  id           String         @id @default(uuid())
+  course       Course         @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  courseId     String
+  createdAt    DateTime       @default(now())
+  description  String?        @db.Text
+  imageUrl     String?        @db.Text
+  isFree       Boolean        @default(false)
+  isPublished  Boolean        @default(false)
+  muxData      MuxData?
+  position     Int
+  title        String
+  updatedAt    DateTime       @updatedAt
+  userProgress UserProgress[]
+  videoUrl     String?        @db.Text
+
+  @@index([courseId])
+}
+
+// Payments
+enum StripeSubscriptionPeriod {
+  monthly
+  yearly
+}
+
+model PurchaseDetails {
+  id            String   @id @default(uuid())
+  city          String?
+  country       String?
+  countryCode   String?
+  createdAt     DateTime @default(now())
+  currency      String?
+  invoiceId     String?
+  latitude      Float?
+  longitude     Float?
+  paymentIntent String?
+  price         Int?
+  purchase      Purchase @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  purchaseId    String
+  updatedAt     DateTime @updatedAt
+
+  @@unique([purchaseId])
+}
+
+model Purchase {
+  id        String           @id @default(uuid())
+  course    Course           @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  courseId  String
+  createdAt DateTime         @default(now())
+  details   PurchaseDetails?
+  updatedAt DateTime         @updatedAt
+  userId    String
+
+  @@unique([userId, courseId])
+  @@index([courseId])
+}
+
+model StripeCustomer {
+  id               String   @id @default(uuid())
+  createdAt        DateTime @default(now())
+  stripeCustomerId String   @unique
+  updatedAt        DateTime @updatedAt
+  userId           String   @unique
+}
+
+model StripeConnectAccount {
+  id              String          @id @default(uuid())
+  createdAt       DateTime        @default(now())
+  payoutRequests  PayoutRequest[]
+  stripeAccountId String          @unique
+  updatedAt       DateTime        @updatedAt
+  userId          String          @unique
+}
+
+model StripePromo {
+  id             String   @id @default(uuid())
+  code           String
+  createdAt      DateTime @default(now())
+  isActive       Boolean  @default(true)
+  stripeCouponId String
+  stripePromoId  String   @unique
+  updatedAt      DateTime @updatedAt
+}
+
+model StripeSubscription {
+  id                   String    @id @default(uuid())
+  cancelAt             DateTime?
+  createdAt            DateTime  @default(now())
+  endDate              DateTime
+  name                 String
+  startDate            DateTime  @default(now())
+  stripeCustomerId     String    @unique
+  stripePriceId        String    @unique
+  stripeSubscriptionId String    @unique
+  updatedAt            DateTime  @updatedAt
+  user                 User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId               String    @unique
+
+  @@index([userId])
+}
+
+model StripeSubscriptionDescription {
+  id        String                   @id @default(uuid())
+  createdAt DateTime                 @default(now())
+  name      String
+  period    StripeSubscriptionPeriod
+  points    String[]
+  price     Int?                     @default(0)
+  updatedAt DateTime                 @updatedAt
+}
+
+model PayoutRequest {
+  id                   String               @id @default(uuid())
+  amount               Int
+  connectAccount       StripeConnectAccount @relation(fields: [connectAccountId], references: [id])
+  connectAccountId     String
+  createdAt            DateTime             @default(now())
+  currency             String
+  destinationPaymentId String?
+  status               String
+  transactionId        String?
+  updatedAt            DateTime             @updatedAt
+
+  @@index([connectAccountId])
+}
+
+model Fee {
+  id        String   @id @default(uuid())
+  amount    Int      @default(0)
+  createdAt DateTime @default(now())
+  method    String
+  name      String   @unique
+  rate      Float    @default(0)
+  type      String?
+  updatedAt DateTime @updatedAt
+}
+
+// User notifications
+model Notification {
+  id        String   @id @default(uuid())
+  body      String
+  createdAt DateTime @default(now())
+  isRead    Boolean  @default(false)
+  title     String
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+
+  @@index([userId])
+}
+
+// CSM System
+enum CsmStatus {
+  done
+  new
+  progress
+  review
+  todo
+}
+
+model CsmCategory {
+  id       String     @id @default(uuid())
+  csmIssue CsmIssue[]
+  name     String     @unique
+}
+
+model CsmAttachment {
+  id         String    @id @default(uuid())
+  createdAt  DateTime  @default(now())
+  name       String
+  csmIssue   CsmIssue? @relation(fields: [csmIssueId], references: [id])
+  csmIssueId String?
+  updatedAt  DateTime  @updatedAt
+  url        String    @db.Text
+
+  @@index([csmIssueId])
+}
+
+model CsmIssue {
+  id          String          @id @default(uuid())
+  attachments CsmAttachment[]
+  category    CsmCategory?    @relation(fields: [categoryId], references: [id])
+  categoryId  String?
+  createdAt   DateTime        @default(now())
+  description String
+  email       String?
+  name        String
+  status      CsmStatus       @default(new)
+  updatedAt   DateTime        @updatedAt
+  user        User?           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String?
+
+  @@index([categoryId])
+}
+
+// Chat Copilot
+model ChatMessage {
+  id             String            @id @default(uuid())
+  content        String
+  conversation   ChatConversation? @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  conversationId String?
+  createdAt      DateTime          @default(now())
+  model          String
+  role           String
+  updatedAt      DateTime          @updatedAt
+
+  @@index([conversationId])
+}
+
+model ChatConversation {
+  id        String                  @id @default(uuid())
+  createdAt DateTime                @default(now())
+  messages  ChatMessage[]
+  position  Int
+  shared    ChatSharedConversation?
+  title     String
+  updatedAt DateTime                @updatedAt
+  user      User?                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String?
+
+  @@index([userId])
+}
+
+model ChatSharedConversation {
+  id             String           @id @default(uuid())
+  conversation   ChatConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  conversationId String           @unique
+  createdAt      DateTime         @default(now())
+  expireAt       DateTime?
+  isActive       Boolean?         @default(true)
+  isOnlyAuth     Boolean?         @default(false)
+  updatedAt      DateTime         @updatedAt
+  user           User?            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String?
+
+  @@index([conversationId])
+}

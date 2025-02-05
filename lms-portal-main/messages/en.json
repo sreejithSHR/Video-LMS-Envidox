@@ -1,0 +1,472 @@
+{
+  "app": {
+    "description": "Educational portal",
+    "loading": "Loading...",
+    "name": "Envidox Solutions",
+    "poweredBy": "Powered by"
+  },
+  "auth": {
+    "welcomeBonus": {
+      "body": "Hi! Thank you for registering on our platform. Catch the promotion code - { promotionCode } for your first purchase 🤩",
+      "title": "Welcome bonus"
+    }
+  },
+  "error-modal": {
+    "body": "Something went wrong. Please restart the page.",
+    "reload": "Reload",
+    "title": "Oops"
+  },
+  "auth-form": {
+    "alreadyHaveAnAccount": "Already have an account?",
+    "continueWith": "Continue with { provider }",
+    "doNotHaveAnAccount": "Do not have an account?",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "toContinue": "to continue to { appName }",
+    "username": "Username",
+    "required": "This field is required.",
+    "errors": {
+      "email": "Must have at least 8 character.",
+      "emailExist": "Email already exist",
+      "invalidEmail": "Invalid Email.",
+      "invalidPasswordOrEmail": "Invalid password or email address",
+      "password": "Must have at least 4 character.",
+      "passwordRules": "The password must contain at least one lowercase letter one uppercase letter and one digit.",
+      "username": "Must have at least 4 character."
+    }
+  },
+  "confirm-modal": {
+    "body": "This action cannot be undone.",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "title": "Are you sure?"
+  },
+  "otp-modal": {
+    "body": "You can use any authenticator app that supports Time-based, One Time Password (TOTP) such as the Google.",
+    "enable": "Enable",
+    "success": "2FA authentication is enabled",
+    "title": "Enable 2FA Authentication",
+    "errors": {
+      "invalidOtp": "Invalid OTP code"
+    }
+  },
+  "delete-acc-modal": {
+    "body": "Are you sure you want to delete your account? Deleting your account is permanent and will delete all your data forever.",
+    "cancel": "Cancel",
+    "confirm": "Yes, Delete Account Forever",
+    "confirmEmail": "Type <strong>email</strong> to confirm.",
+    "title": "Delete Account"
+  },
+  "promo-modal": {
+    "body": "Click \"Add promotion code\" when you are done.",
+    "code": "Code",
+    "coupon": "Coupon",
+    "created": "Promotion code has been created",
+    "firstTimePurchaseBody": " Eligible for first-time order only",
+    "limitNumberOfRedeemedBody": "Limit the number of times this code can be redeemed",
+    "limitToSpecificCustomersBody": "Limit to a specific customer",
+    "requireMinimumAmount": "Require minimum order value",
+    "selectCoupon": "Select a coupon",
+    "selectCurrency": "Select a currency",
+    "selectCustomer": "Select a customer",
+    "selectMinAmount": "Set a min amount price",
+    "submit": "Add promotion code",
+    "title": "Add a new promotion code"
+  },
+  "csm-modal": {
+    "attach": "Attach",
+    "attachments": "Attachments",
+    "body": "Provide a detailed description of the bug including steps to reproduce it, expected behavior, and actual behavior. Include any relevant information or observations.",
+    "cancel": "Cancel",
+    "enterEmail": "Enter your email",
+    "notFound": "No attachments",
+    "selectReason": "Choose a reason",
+    "submit": "Submit",
+    "success": "The report has been created.",
+    "title": "Bug Report",
+    "categories": {
+      "auth": "Authorization",
+      "data": "Data / Content issue",
+      "error": "Crash / Error issue",
+      "functionality": "Functionality issue",
+      "localization": "Localization / Internalization issue",
+      "other": "Other",
+      "performance": "Performance issue",
+      "security": "Security issue",
+      "usability": "Usability / UX issue",
+      "visual": "Visual / Aesthetic issue"
+    },
+    "notifications": {
+      "ownerSuccessWithoutUser": "{ user } has created a task. Please pay attention!",
+      "ownerSuccess": "{ user } has created a task. Please pay attention!",
+      "success": "Thanks for your report. We will notify you as soon as the problem is resolved."
+    }
+  },
+  "chat-conversation-modal": {
+    "copied": "The link has been copied",
+    "copyLink": "Copy the link",
+    "description": "Click \"Submit\" when you are done.",
+    "onlyAuth": "Only for authorized users",
+    "openAccess": "Open access to the conversation via the link",
+    "sharedAccess": "Shared access",
+    "submit": "Done",
+    "title": "Title",
+    "titleAdd": "Add conversation",
+    "titleEdit": "Edit conversation"
+  },
+  "profile-image-modal": {
+    "accInfoUpdated": "Account information updated",
+    "body": "Add a photo, it will make your profile more attractive and interesting.",
+    "delete": "Delete a profile picture",
+    "footer": "You can upload an image in JPG, GIF or PNG format. The maximum file size is 8 MB",
+    "title": "Profile Picture",
+    "upload": "Upload a new profile picture"
+  },
+  "footer": {
+    "and": "and",
+    "contact": "Contact",
+    "copyright": "Envidox Solutions. All rights reserved.",
+    "creatingAccount": "By creating an account, you agree to our",
+    "releaseNotes": "Releases notes",
+    "reportIssue": " Report Issue",
+    "testModeDeclaimer": "The portal is currently in test mode. All payments and data are fictitious.",
+    "legal": {
+      "cookiePolicy": "Cookie Policy",
+      "privacyPolices": "Privacy Policy",
+      "privacyPolicy": "Privacy Policy",
+      "releasesNotes": "Releases notes",
+      "termsAndCondition": "Terms and Conditions",
+      "termsAndConditions": "Terms and Conditions",
+      "title": "Legal"
+    }
+  },
+  "sidebar": {
+    "analytics": "Analytics",
+    "billingAndSubscription": "Billing & Subscription",
+    "browse": "Browse",
+    "config": "Config",
+    "cookies-policy": "Cookie Policy",
+    "courses": "Courses",
+    "dashboard": "Dashboard",
+    "general": "General",
+    "leaderboard": "Leaderboard",
+    "new": "new",
+    "notifications": "Notifications",
+    "payments": "Payments",
+    "privacy-policy": "Privacy Policy",
+    "promo": "Promo",
+    "releases": "Releases notes",
+    "terms": "Terms and Conditions",
+    "users": "Users"
+  },
+  "error": {
+    "body": "An unexpected application error has occurred.",
+    "title": "500",
+    "tryAgain": "Try again"
+  },
+  "notFoundPage": {
+    "body": "We could not find the page you were looking for.",
+    "goBackHome": "Go back home",
+    "title": "404"
+  },
+  "profileButton": {
+    "admin": "Admin",
+    "chat": "Chat",
+    "logOut": "Log out",
+    "login": "Login",
+    "owner": "Owner",
+    "premium": "Nova Plus",
+    "progress": "Progress",
+    "settings": "Settings",
+    "student": "Student",
+    "teacher": "Teacher"
+  },
+  "switcher": {
+    "dark": "Dark",
+    "language": "Language",
+    "light": "Light",
+    "system": "System",
+    "theme": "Theme"
+  },
+  "payments": {
+    "payout": {
+      "decline": {
+        "body": "Your payout request has been declined.",
+        "title": "Payout Request { payoutRequestId }"
+      },
+      "paid": {
+        "body": "The payout request has been successfully completed. { amount } was transferred to your Stripe account.",
+        "title": "Payout Request { payoutRequestId }"
+      }
+    },
+    "promo": {
+      "new": {
+        "body": "Congratulations on receiving the promo code - { code }. Please take advantage of it as soon as possible!",
+        "title": "New promotion code"
+      }
+    },
+    "stripe-connect": {
+      "emptyBalance": "Insufficient funds on the balance sheet.",
+      "request": {
+        "body": "{ username } has requested a withdrawal of funds.",
+        "title": "Payout Request { payoutRequestId }"
+      }
+    }
+  },
+  "courses": {
+    "publish": {
+      "errors": {
+        "missingRequiredFields": "Missing required fields"
+      }
+    },
+    "checkout": {
+      "errors": {
+        "alreadyPurchased": "Already purchased"
+      }
+    },
+    "video-player": {
+      "completed": "Complete and Continue",
+      "loading": "Loading a video...",
+      "lock": "This chapter is locked",
+      "notCompleted": "Not completed",
+      "progress": "Progress updated"
+    },
+    "banner": {
+      "completed": "You have already completed this chapter.",
+      "lock": "You will need to purchase this course to proceed to this chapter."
+    },
+    "card": {
+      "chapter": "{ amount, plural, =1 {# chapter} other {# chapters}}",
+      "premium": "Premium"
+    },
+    "info-card": {
+      "completed": "Completed",
+      "course": "{ amount, plural, =1 {# course} other {# courses}}",
+      "inProgress": "In Progress"
+    },
+    "list": {
+      "notFound": "No courses found."
+    },
+    "category": {
+      "all": "All"
+    },
+    "preview": {
+      "backTo": "Back to courses",
+      "continue": "Continue",
+      "keepProgress": "Keep track of your progress, learn new things and much more.",
+      "loginToContinue": "Login to continue",
+      "readyToLearn": "Ready to start learning?",
+      "preview": {
+        "author": "Course author { author }",
+        "chapter": "{ amount, plural, =1 {# chapter} other {# chapters}}",
+        "lastUpdated": "Last Updated",
+        "loading": "Loading a video...",
+        "lock": "This preview is locked"
+      }
+    },
+    "progress": {
+      "complete": "Complete"
+    }
+  },
+  "releases": {
+    "backNav": "Back to courses",
+    "download": "Download .zip",
+    "releasesNotes": "Releases notes"
+  },
+  "signIn": {
+    "body": "To view, please login.",
+    "quoteAuthor": "Socrates",
+    "quoteBody": "The more I study, the more I realize how little I know.",
+    "generated": "Generated using Envidox Copilot ({ model })",
+    "login": "Login",
+    "title": "This content is protected."
+  },
+  "otpVerification": {
+    "body": "Please enter the OTP code below.",
+    "goBack": "Go back",
+    "title": "2FA Verification",
+    "errors": {
+      "invalidOtp": "Invalid OTP code",
+      "somethingWentWrong": "Something went wrong. Try again!"
+    }
+  },
+  "restricted": {
+    "title": "Restricted",
+    "body": "Registration of new users is closed. We apologize 🥺",
+    "goBackHome": "Go back home"
+  },
+  "chat": {
+    "body": {
+      "title": "What can I assist you with today?"
+    },
+    "conversation": {
+      "add": "New conversation",
+      "conversations": "Conversations",
+      "delete-all": "Delete all conversations",
+      "edit": "Edit",
+      "remove": "Remove",
+      "removed-conversation": "The conversation \"{conversation}\" has been successfully deleted.",
+      "share": "Share",
+      "title": "New conversation { order }"
+    },
+    "input": {
+      "ask": "Ask",
+      "enterMessage": "Enter your message...",
+      "footer": "Nova Copilot can make mistakes. Consider checking important information."
+    },
+    "shared": {
+      "expiredAt": "Available until { date }"
+    }
+  },
+  "ai-generate": {
+    "improve": "Improve",
+    "original": "Return the original",
+    "stop": "Stop",
+    "translate": "Translate with Nova¬opilot"
+  },
+  "cookie-consent": {
+    "accept": "Accept",
+    "body": "We use cookies to enhance the user experience. By using our website, you consent to all cookies in accordance with our",
+    "policy": "Cookie Policy"
+  },
+  "course-enroll": {
+    "enrollFor": "Enroll for ",
+    "free": "Free",
+    "redirect": "You will be redirected to the checkout page."
+  },
+  "file-download": {
+    "download": "Download"
+  },
+  "price": {
+    "fees": "Fees",
+    "free": "Free"
+  },
+  "search-input": {
+    "searchFor": "Search for a course..."
+  },
+  "subscription": {
+    "bannerBody": "Unlock premium courses, get access to Nova Copilot, and more.",
+    "bannerTitle": "Upgrade to Pro",
+    "benefits": {
+      "cancel-anytime": "Cancel anytime",
+      "get-access-nova-ai": "Get access to Nova Copilot",
+      "unlock-premium-courses": "Unlock premium courses"
+    },
+    "bestChoice": "The best choice!",
+    "loginToContinue": "Login to continue",
+    "mo": "/mo",
+    "monthly": "Monthly",
+    "redirect": "You will be redirected to the checkout page.",
+    "upgrade": "Upgrade",
+    "yearly": "Yearly"
+  },
+  "toast": {
+    "error": {
+      "body": "Something went wrong. Try again!",
+      "title": "Oops!"
+    }
+  },
+  "leaderboard": {
+    "notFound": "There are no leaders here yet.",
+    "points": "Points",
+    "rank": "Rank",
+    "user": "User",
+    "you": "You"
+  },
+  "notifications": {
+    "all": "All",
+    "markAsRead": "Mark as read",
+    "markAsUnread": "Mark as unread",
+    "markSelected": "Mark { amount } selected as { action }",
+    "notFound": "There are no notifications",
+    "notFoundAtTheMoment": "There are no new notifications at the moment",
+    "notificationCenter": "Notification Center",
+    "openMenu": "Open menu",
+    "read": "read",
+    "remove": "Remove",
+    "table-data": {
+      "date": "Date",
+      "filter": "Search for a notification...",
+      "notFound": "There are no notifications",
+      "notification": "Notification",
+      "title": "Title"
+    },
+    "title": "Notifications",
+    "unread": "Unread",
+    "upToDate": "You are all up to date",
+    "viewAll": "View all"
+  },
+  "navbar": {
+    "backTo": "Back to courses",
+    "exit": "Exit"
+  },
+  "settings": {
+    "advancedOptions": "Advanced Options",
+    "deleteAcc": "Delete Account",
+    "general": "General Settings",
+    "generalForm": {
+      "accInfo": "Account Information",
+      "accInfoUpdated": "Account information updated",
+      "avatar": "Avatar URL",
+      "email": "Email",
+      "enterAvatar": "Enter your Avatar URL",
+      "enterEmail": "Enter your email",
+      "enterName": "Enter your name",
+      "lastUpdated": "Last Updated",
+      "name": "Username",
+      "update": "Update"
+    },
+    "publicProfileForm": {
+      "body": "Change the visibility of your profile",
+      "title": "Enable Public Profile",
+      "visibilityUpdated": "Visibility updated"
+    },
+    "otpForm": {
+      "addedAt": "Added at { date }",
+      "body": "Two-factor authentication adds an additional layer of security to your account",
+      "disable": "Disable",
+      "disabled": "Disabled",
+      "enable": "Enable",
+      "enabled": "Enabled",
+      "otpDisabled": "2FA authentication is disabled",
+      "title": "Enable 2FA"
+    },
+    "billing": {
+      "activePlan": "Active Plan",
+      "cancel": "Your subscription will be { action } on { date }.",
+      "cancelBanner": "Your subscription will be canceled on { date }. Renew your subscription now to continue using { planName }.",
+      "cancelled": "cancelled",
+      "history": "Billing History",
+      "manageSubscription": "Manage Subscription",
+      "noInvoices": "No invoices",
+      "noSubscription": "You do not have any active subscriptions.",
+      "redirect": "You will be redirected to the checkout page.",
+      "renewed": "renewed",
+      "table-data": {
+        "course": "Course",
+        "date": "Purchase date",
+        "history": "Billing History",
+        "noInvoices": "No invoices",
+        "price": "Price",
+        "view": "View"
+      },
+      "title": "Billing & Subscription",
+      "mo": "/mo",
+      "year": "/year"
+    },
+    "christmas": {
+      "title": "Turn on the Christmas mood 🎄🎁",
+      "body": "The Christmas theme adds a little magic."
+    }
+  },
+  "file-upload": {
+    "dragAndDrop": "Choose files or drag and drop",
+    "upload": "Upload",
+    "uploading": "Uploading..."
+  },
+  "docs": {
+    "backNav": "Back to courses"
+  }
+}

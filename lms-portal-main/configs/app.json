@@ -1,0 +1,18 @@
+{
+  "auth": {
+    "isBlockedNewLogin": false
+  },
+  "features": {
+    "christmas": true
+  },
+  "providers": {
+    "credentials": true,
+    "github": true,
+    "google": true,
+    "linkedin": false,
+    "mailru": false,
+    "slack": false,
+    "vk": true,
+    "yandex": true
+  }
+}
