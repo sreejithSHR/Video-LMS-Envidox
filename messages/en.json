@@ -177,7 +177,7 @@
     "logOut": "Log out",
     "login": "Login",
     "owner": "Owner",
-    "premium": "Nova Plus",
+    "premium": "Envidox Plus",
     "progress": "Progress",
     "settings": "Settings",
     "student": "Student",
@@ -314,7 +314,7 @@
     "input": {
       "ask": "Ask",
       "enterMessage": "Enter your message...",
-      "footer": "Nova Copilot can make mistakes. Consider checking important information."
+      "footer": "Envidox Copilot can make mistakes. Consider checking important information."
     },
     "shared": {
       "expiredAt": "Available until { date }"
@@ -324,7 +324,7 @@
     "improve": "Improve",
     "original": "Return the original",
     "stop": "Stop",
-    "translate": "Translate with Nova¬opilot"
+    "translate": "Translate with Envidox¬opilot"
   },
   "cookie-consent": {
     "accept": "Accept",
@@ -347,11 +347,11 @@
     "searchFor": "Search for a course..."
   },
   "subscription": {
-    "bannerBody": "Unlock premium courses, get access to Nova Copilot, and more.",
+    "bannerBody": "Unlock premium courses, get access to Envidox Copilot, and more.",
     "bannerTitle": "Upgrade to Pro",
     "benefits": {
       "cancel-anytime": "Cancel anytime",
-      "get-access-nova-ai": "Get access to Nova Copilot",
+      "get-access-nova-ai": "Get access to Envidox Copilot",
       "unlock-premium-courses": "Unlock premium courses"
     },
     "bestChoice": "The best choice!",
